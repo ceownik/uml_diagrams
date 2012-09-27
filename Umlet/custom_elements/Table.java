@@ -8,24 +8,47 @@ import com.baselet.control.Utils;
 public class <!CLASSNAME!> extends com.umlet.custom.CustomElement {
 	
 	// columns amount
-	public int columnsCount = 0;
+	public Int columnsCount = 0;
 	
-	//public Vector<int> columnsSize = new Vector<int>;
-
-
+	
+	// columns length
+	public Vector<Int> columnsSize = new Vector<Int>;
+	
+	
+	// longest column width
+	public Int longestColumnWidth = 0;
+	
+	
+	// text lines to display
+	public Vector<String> textlines = new Vector<String>;
+	
+	
 	public CustomElementImpl() {
 		
 	}
 	
+	
+	//
+	public prepare()
+	{
+		return "after prepare";
+	}
+	
 	@Override
 	public void paint() {
-		Vector<String> textlines = Utils.decomposeStrings(this.getPanelAttributes());
+		this.textlines = Utils.decomposeStrings(this.getPanelAttributes());
+		Vector<String> textlines = this.textlines;
+		
+		String test = "before prepare";
+		//test = this.prepare();
 	
 		/****CUSTOM_CODE START****/
 //This is a self resizing component which displays data in table 
 //you are able to resize at manually
 //As soon as it is resized manually a new text is
 //added to the property panel
+
+
 setAutoresize(20,20,10);
 
 int y=textHeight();
@@ -45,6 +68,7 @@ for(int i = 0; i < textlines.size(); i++) {
 	}
 }
 	//printLeft(this.columnsCount,100);
+	printLeft(test,50);
 drawRectangle(0,0,onGrid(width),onGrid(height));
 		/****CUSTOM_CODE END****/
 	}
