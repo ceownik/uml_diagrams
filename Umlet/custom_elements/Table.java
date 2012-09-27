@@ -26,7 +26,6 @@ public class <!CLASSNAME!> extends com.umlet.custom.CustomElement {
 //you are able to resize at manually
 //As soon as it is resized manually a new text is
 //added to the property panel
-
 setAutoresize(20,20,10);
 
 int y=textHeight();
